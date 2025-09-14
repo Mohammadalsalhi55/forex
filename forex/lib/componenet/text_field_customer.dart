@@ -5,20 +5,23 @@ import 'package:flutter_svg/svg.dart';
 
 class TextFieldCustomer extends StatelessWidget {
   String? svgLink;
-  String hintText;
+  String? hintText;
   TextEditingController controller;
   TextInputType? keyboardType;
+  bool enabled;
   TextFieldCustomer({
-    required this.hintText,
+    this.hintText,
     required this.controller,
     super.key,
     this.svgLink,
     this.keyboardType,
+    this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enabled: enabled,
       controller: controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -35,7 +38,7 @@ class TextFieldCustomer extends StatelessWidget {
           ),
         ),
         hintText: hintText,
-        hintStyle: TextStyle(color: Color(0xFFD4D4D4)),
+        hintStyle: TextStyle(color: enabled ? Color(0xFFD4D4D4) : Colors.black),
         prefixIcon: svgLink != null
             ? Padding(
                 padding: const EdgeInsets.all(12.0),

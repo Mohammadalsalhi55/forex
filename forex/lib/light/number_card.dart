@@ -230,9 +230,16 @@ class _NumberCardState extends State<NumberCard> {
                 SizedBox(height: size.height * 0.20),
                 Center(
                   child: ButtonWidget(
-                    text: 'Continue',
-                    isEnabled: isButtonEnabled,
-                  ),
+                      text: 'Continue',
+                      isEnabled: isButtonEnabled,
+                      onTap: () {
+                        String cardNumber = cardNumberController.text;
+                        Navigator.pushNamed(
+                          context,
+                          '/verifycard',
+                          arguments: cardNumber,
+                        );
+                      }),
                 )
               ],
             ),

@@ -41,10 +41,10 @@ class ButtonWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 18.0),
                 child: Text(
                   text,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    color: isEnabled ? Colors.white : const Color(0xFFD4D4D4),
                   ),
                 ),
               ),
