@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forex/componenet/button_widget.dart';
+import 'package:forex/componenet/my_drawer.dart';
 
 class AddingCard extends StatelessWidget {
   const AddingCard({super.key});
