@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/cardnumber': (context) => NumberCard(),
+        '/cardnumber': (context) => const NumberCard(),
         '/verifycard': (context) => const VerifyCard(),
         '/successfullyadded': (context) => const SuccessfullyAdded(),
       },

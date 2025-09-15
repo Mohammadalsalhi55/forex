@@ -8,13 +8,15 @@ class AddingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
           elevation: 0,
           flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -25,20 +27,23 @@ class AddingCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                        size: 24,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
+                    Builder(
+                      builder: (context) {
+                        return IconButton(
+                          icon: Icon(
+                            Icons.menu,
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                          onPressed: () {
+                            Scaffold.of(context).openDrawer();
+                          },
+                        );
                       },
                     ),
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.close,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                         size: 24,
                       ),
                       onPressed: () {},
@@ -49,7 +54,7 @@ class AddingCard extends StatelessWidget {
               LinearProgressIndicator(
                 value: 0.1,
                 minHeight: 2,
-                backgroundColor: Colors.grey[300],
+                backgroundColor: Theme.of(context).colorScheme.secondary,
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(Color(0xFF613DE4)),
               ),
@@ -57,13 +62,14 @@ class AddingCard extends StatelessWidget {
           ),
         ),
       ),
+      drawer: MyDrawer(),
       body: Stack(
         children: [
           Positioned(
             top: -50,
             right: -50,
             child: Image.asset(
-              "assets/Group 39742.png",
+              isDark ? "assets/Vector 3 (1).png" : "assets/Group 39742.png",
               width: size.width * 0.4,
             ),
           ),
@@ -71,7 +77,7 @@ class AddingCard extends StatelessWidget {
             top: -50,
             left: -50,
             child: Image.asset(
-              "assets/Group 39740.png",
+              isDark ? "assets/Vector 1.png" : "assets/Group 39740.png",
               width: size.width * 0.5,
             ),
           ),
@@ -79,7 +85,7 @@ class AddingCard extends StatelessWidget {
             top: size.height * 0.28,
             left: -100,
             child: Image.asset(
-              "assets/Vector 4.png",
+              isDark ? "assets/Vector 4 (1).png" : "assets/Vector 4.png",
               width: size.width * 0.9,
             ),
           ),
@@ -87,7 +93,7 @@ class AddingCard extends StatelessWidget {
             top: size.height * 0.45,
             left: -30,
             child: Image.asset(
-              "assets/Vector 3.png",
+              isDark ? "assets/Vector 3 (2).png" : "assets/Vector 3.png",
               width: size.width * 0.45,
             ),
           ),
@@ -95,7 +101,7 @@ class AddingCard extends StatelessWidget {
             top: size.height * 0.75,
             left: -30,
             child: Image.asset(
-              "assets/Vector 3.png",
+              isDark ? "assets/Group 39745.png" : "assets/Vector 3.png",
               width: size.width * 0.45,
             ),
           ),
@@ -103,46 +109,48 @@ class AddingCard extends StatelessWidget {
             top: size.height * 0.63,
             right: -30,
             child: Image.asset(
-              "assets/Group 39740.png",
+              isDark ? "assets/Vector 1 (1).png" : "assets/Group 39740.png",
               width: size.width * 0.4,
             ),
           ),
           Column(
             children: [
-              SizedBox(height: size.height * 0.18),
+              SizedBox(height: size.height * 0.16),
               Center(
                 child: Image.asset(
-                  "assets/Adding card.png",
+                  isDark
+                      ? "assets/Adding card dark.png"
+                      : "assets/Adding card.png",
                   width: size.width * 0.65,
                 ),
               ),
-              SizedBox(height: size.height * 0.10),
-              const Text(
+              SizedBox(height: size.height * 0.08),
+              Text(
                 "Let’s add your card",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
-              const SizedBox(height: 18),
-              const Text(
+              const SizedBox(height: 12),
+              Text(
                 "Experience the power of financial organization ",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: Colors.black87,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
-              const Text(
+              Text(
                 "with our platform",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: Colors.black87,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
-              SizedBox(height: size.height * 0.05),
+              SizedBox(height: size.height * 0.04),
               ButtonWidget(
                 text: 'Add your card',
                 icon: Icons.add,

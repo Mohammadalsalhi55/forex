@@ -27,18 +27,21 @@ class TextFieldCustomer extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: BorderSide(
-            color: Color(0xFFD4D4D4),
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: BorderSide(
             color: Color(0xFFD4D4D4),
-            width: 2,
           ),
         ),
         hintText: hintText,
-        hintStyle: TextStyle(color: enabled ? Color(0xFFD4D4D4) : Colors.black),
+        hintStyle: TextStyle(
+          color: enabled
+              ? Color(0xFFD4D4D4)
+              : Theme.of(context).colorScheme.inversePrimary,
+        ),
         prefixIcon: svgLink != null
             ? Padding(
                 padding: const EdgeInsets.all(12.0),

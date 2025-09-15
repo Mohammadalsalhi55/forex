@@ -16,23 +16,20 @@ class _VerifyCardState extends State<VerifyCard> {
   void checkOtp(String code) {
     setState(() {
       otpCode = code;
+      isOtpValid = otpCode.length == 6;
     });
-    if (otpCode.length == 6) {
-      isOtpValid = true;
-    } else {
-      isOtpValid = false;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
           elevation: 0,
           flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -44,9 +41,9 @@ class _VerifyCardState extends State<VerifyCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                         size: 24,
                       ),
                       onPressed: () {
@@ -54,9 +51,9 @@ class _VerifyCardState extends State<VerifyCard> {
                       },
                     ),
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.close,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                         size: 24,
                       ),
                       onPressed: () {},
@@ -84,7 +81,7 @@ class _VerifyCardState extends State<VerifyCard> {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.06,
-                  vertical: size.height * 0.02,
+                  vertical: size.height * 0.015,
                 ),
                 child: Text(
                   "Verify your card",
@@ -95,9 +92,7 @@ class _VerifyCardState extends State<VerifyCard> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: size.width * 0.06,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
                 child: Text(
                   "We send 6 digits code to your number",
                   style: TextStyle(
@@ -106,38 +101,38 @@ class _VerifyCardState extends State<VerifyCard> {
                   ),
                 ),
               ),
-              SizedBox(height: size.height * 0.05),
+              SizedBox(height: size.height * 0.04),
               OtpTextField(
                 numberOfFields: 6,
                 enabledBorderColor: const Color(0xFFCDD5E9),
                 borderColor: const Color(0xFF613DE4),
                 showFieldAsBox: false,
-                onCodeChanged: (String code) {
-                  checkOtp(code);
-                },
-                onSubmit: (String verificationCode) {
-                  checkOtp(verificationCode);
-                },
+                onCodeChanged: (String code) => checkOtp(code),
+                onSubmit: (String verificationCode) =>
+                    checkOtp(verificationCode),
               ),
-              SizedBox(height: size.height * 0.03),
+              SizedBox(height: size.height * 0.025),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Didn’t get a code?",
-                    style: TextStyle(
-                      fontSize: size.width * 0.04,
-                    ),
+                    style: TextStyle(fontSize: size.width * 0.04),
                   ),
-                  Text("\u00A0Resend",
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      "\u00A0Resend",
                       style: TextStyle(
                         color: const Color(0xFF613DE4),
                         fontWeight: FontWeight.w400,
                         fontSize: size.width * 0.04,
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: size.height * 0.5),
+              SizedBox(height: size.height * 0.45),
               Center(
                 child: ButtonWidget(
                   text: 'Verify',
@@ -146,7 +141,7 @@ class _VerifyCardState extends State<VerifyCard> {
                     Navigator.pushNamed(context, '/successfullyadded');
                   },
                 ),
-              )
+              ),
             ],
           ),
         ),

@@ -21,8 +21,11 @@ class ButtonWidget extends StatelessWidget {
       onTap: isEnabled ? onTap : null,
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
-            color: isEnabled ? const Color(0xFF613DE4) : Color(0xFFF5F7FC)),
+          borderRadius: BorderRadius.circular(4),
+          color: isEnabled
+              ? const Color(0xFF613DE4)
+              : Theme.of(context).colorScheme.primaryContainer,
+        ),
         width: 358,
         height: 40,
         child: Center(

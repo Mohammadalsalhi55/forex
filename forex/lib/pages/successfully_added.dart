@@ -9,11 +9,12 @@ class SuccessfullyAdded extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
           elevation: 0,
           flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -25,9 +26,9 @@ class SuccessfullyAdded extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                         size: 24,
                       ),
                       onPressed: () {
@@ -35,9 +36,9 @@ class SuccessfullyAdded extends StatelessWidget {
                       },
                     ),
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.close,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                         size: 24,
                       ),
                       onPressed: () {},
@@ -46,6 +47,7 @@ class SuccessfullyAdded extends StatelessWidget {
                 ),
               ),
               const LinearProgressIndicator(
+                backgroundColor: Colors.black,
                 value: 1,
                 minHeight: 2,
                 valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF613DE4)),
@@ -60,22 +62,20 @@ class SuccessfullyAdded extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.03,
-              vertical: size.height * 0.02,
+              vertical: size.height * 0.015,
             ),
             child: Container(
-              height: size.height * 0.08,
-              width: size.width * 1.0,
-              color: Color(0xFF47C36F),
+              height: size.height * 0.07,
+              width: size.width,
+              color: const Color(0xFF47C36F),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Icon(Icons.check_circle_outline),
+                    const Icon(Icons.check_circle_outline),
                     SizedBox(width: size.width * 0.02),
-                    Text(
-                      "Your card successfully added",
-                    ),
+                    const Text("Your card successfully added"),
                   ],
                 ),
               ),
@@ -84,7 +84,7 @@ class SuccessfullyAdded extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.06,
-              vertical: size.height * 0.02,
+              vertical: size.height * 0.015,
             ),
             child: Text(
               "Card list",
@@ -97,7 +97,7 @@ class SuccessfullyAdded extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.06,
-              vertical: size.height * 0.01,
+              vertical: size.height * 0.008,
             ),
             child: TextFieldCustomer(
               svgLink: "assets/mastercard.svg",
