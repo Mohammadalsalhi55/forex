@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:forex/componenet/setting_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -19,8 +18,7 @@ class MyDrawer extends StatelessWidget {
                       child: Container(child: const Icon(Icons.settings))),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SettingPage()));
+                    Navigator.pushNamed(context, "/settingpage");
                   },
                 ),
               ),
