@@ -87,7 +87,7 @@ class _NumberCardState extends State<NumberCard> {
                 ),
               ),
               const LinearProgressIndicator(
-                value: 0.2,
+                value: 0.5,
                 minHeight: 2,
                 valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF613DE4)),
               ),
@@ -124,7 +124,7 @@ class _NumberCardState extends State<NumberCard> {
                   ),
                 ),
               ),
-              SizedBox(height: size.height * 0.04), // قللنا
+              SizedBox(height: size.height * 0.04),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
                 child: Text(
@@ -138,7 +138,7 @@ class _NumberCardState extends State<NumberCard> {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.06,
-                  vertical: size.height * 0.008, // قللنا
+                  vertical: size.height * 0.008,
                 ),
                 child: TextFieldCustomer(
                   svgLink: "assets/mastercard.svg",
@@ -147,7 +147,7 @@ class _NumberCardState extends State<NumberCard> {
                   controller: cardNumberController,
                 ),
               ),
-              SizedBox(height: size.height * 0.025), // قللنا
+              SizedBox(height: size.height * 0.025),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
                 child: Text(
@@ -183,7 +183,7 @@ class _NumberCardState extends State<NumberCard> {
                       ),
                     ),
                   ),
-                  SizedBox(width: size.width * 0.28), // قللنا
+                  SizedBox(width: size.width * 0.28),
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: size.width * 0.03),
@@ -235,7 +235,7 @@ class _NumberCardState extends State<NumberCard> {
                       String cardNumber = cardNumberController.text;
                       Navigator.pushNamed(
                         context,
-                        '/verifycard',
+                        '/pinsetup',
                         arguments: cardNumber,
                       );
                     }),

@@ -64,7 +64,6 @@ class _VerifyCardState extends State<VerifyCard> {
               LinearProgressIndicator(
                 value: 0.8,
                 minHeight: 2,
-                backgroundColor: Colors.grey[300],
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(Color(0xFF613DE4)),
               ),
@@ -103,6 +102,11 @@ class _VerifyCardState extends State<VerifyCard> {
               ),
               SizedBox(height: size.height * 0.04),
               OtpTextField(
+                textStyle: const TextStyle(
+                  color: Color(0xFF613DE4),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
                 numberOfFields: 6,
                 enabledBorderColor: const Color(0xFFCDD5E9),
                 borderColor: const Color(0xFF613DE4),
