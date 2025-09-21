@@ -96,7 +96,7 @@ class WelcomeScreen extends StatelessWidget {
                 "Your account has been\nsuccessfully created!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 28,
                   fontWeight: FontWeight.w500,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
@@ -104,7 +104,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: size.height * 0.71,
+            top: size.height * 0.80,
             left: size.width * 0.1,
             child: SizedBox(
               width: size.width * 0.8,

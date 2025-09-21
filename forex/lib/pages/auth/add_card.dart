@@ -150,7 +150,7 @@ class AddingCard extends StatelessWidget {
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
-              SizedBox(height: size.height * 0.04),
+              SizedBox(height: size.height * 0.05),
               ButtonWidget(
                 text: 'Add your card',
                 icon: Icons.add,
